@@ -14,13 +14,8 @@ int main(void) {
 		bytes[i] = i;
 	}
 	fe_frombytes(in, bytes);
-
-	for (i = 0; i < 2; i++) {
-		elligator(out, in);
-		fe_copy(in, out);
-	}
-
-	fe_tobytes(bytes, in);
+	elligator(out, in);
+	fe_tobytes(bytes, out);
 
 	for (i = 0; i < 32; i++) {
 		printf("%d ", bytes[i]);
