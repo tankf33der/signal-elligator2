@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "fe.h"
 #include "crypto_additions.h"
@@ -13,8 +14,18 @@ int main(void) {
 		bytes[i] = i;
 	}
 	fe_frombytes(in, bytes);
-	elligator(out, in);
-	fe_tobytes(bytes, out);
-	printf("%d\n", bytes[0]);
+
+	for (i = 0; i < 2; i++) {
+		printf("%d\n", i);
+		elligator(out, in);
+		fe_copy(in, out);
+	}
+
+	fe_tobytes(bytes, in);
+
+	for (i = 0; i < 32; i++) {
+		printf("%d ", bytes[i]);
+	}
+	printf("\n");
 	return 0;
 }
