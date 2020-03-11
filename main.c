@@ -2,8 +2,9 @@
 #include <stdio.h>
 
 #include "fe.h"
+#include "crypto_additions.h"
 
-void main(void) {
+int main(void) {
 	int i;
 	unsigned char bytes[32];
 	fe in, out;
@@ -15,5 +16,5 @@ void main(void) {
 	elligator(out, in);
 	fe_tobytes(bytes, out);
 	printf("%d\n", bytes[0]);
-
+	return 0;
 }
