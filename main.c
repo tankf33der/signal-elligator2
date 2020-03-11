@@ -16,7 +16,6 @@ int main(void) {
 	fe_frombytes(in, bytes);
 
 	for (i = 0; i < 2; i++) {
-		printf("%d\n", i);
 		elligator(out, in);
 		fe_copy(in, out);
 	}

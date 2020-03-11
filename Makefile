@@ -1,5 +1,5 @@
 all: clean
-	clang -Wall -Wextra *.c && ./a.out
+	clang *.c && ./a.out
 mike:
 	cat *.c >> mike.c
 ccomp: clean mike
