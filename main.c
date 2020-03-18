@@ -13,9 +13,15 @@ int main(void) {
 	for (i = 0; i < 32; i++) {
 		bytes[i] = i;
 	}
-	fe_frombytes(in, bytes);
-	elligator(out, in);
-	fe_tobytes(bytes, out);
+
+	for (i = 0; i < 1000000; i++) {
+		bytes[31] &= 0x3f;
+
+		fe_frombytes(in, bytes);
+		elligator(out, in);
+		fe_tobytes(bytes, out);
+	}
+
 
 	for (i = 0; i < 32; i++) {
 		printf("%d ", bytes[i]);
