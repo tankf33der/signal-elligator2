@@ -14,7 +14,7 @@ int main(void) {
 		bytes[i] = i;
 	}
 
-	for (i = 0; i < 1000000; i++) {
+	for (i = 0; i < 100000; i++) {
 		bytes[31] &= 0x3f;
 
 		fe_frombytes(in, bytes);
